@@ -1,0 +1,13 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: springboot-todo-s2i-git
+spec:
+  subdomain: springboot-todo-s2i-git
+  to:
+    kind: Service
+    name: springboot-todo-s2i-git
+    weight: 100
+  port:
+    targetPort: 9001-tcp
+  wildcardPolicy: None

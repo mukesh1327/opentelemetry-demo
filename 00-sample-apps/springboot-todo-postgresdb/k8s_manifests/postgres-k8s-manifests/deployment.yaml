@@ -1,0 +1,54 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: postgresql-demo
+  labels:
+    app: postgresql-demo
+    app.openshift.io/runtime: postgresql
+spec:
+  selector:
+    matchLabels:
+      app: postgresql-demo
+  template:
+    metadata:
+      labels:
+        app: postgresql-demo
+    spec:
+      volumes:
+        - name: postgresql-demo-vol
+          persistentVolumeClaim:
+            claimName: postgresql-demo
+      containers:
+        - name: postgresql-demo
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-demo-configs
+                  key: POSTGRESQL_USER
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-demo-configs
+                  key: POSTGRESQL_PASSWORD
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-demo-configs
+                  key: POSTGRESQL_DATABASE
+          resources:
+            limits:
+              cpu: 250m
+              memory: 450Mi
+            requests:
+              cpu: 200m
+              memory: 420Mi
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: postgresql-demo-vol
+              mountPath: /var/lib/pgsql/data
+          image: 'registry.redhat.io/rhel8/postgresql-15'
+      restartPolicy: Always

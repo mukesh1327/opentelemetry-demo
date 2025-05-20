@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-todo-s2i-git
+  labels:
+    app: springboot-todo-s2i-git
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9001
+      targetPort: 9001
+      protocol: TCP
+      name: 9001-http
+  selector:
+    app: springboot-todo-s2i-git

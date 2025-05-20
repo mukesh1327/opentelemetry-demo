@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgresql-demo
+  labels:
+    app: postgresql-demo
+    app.kubernetes.io/component: postgresql-demo
+    app.kubernetes.io/instance: postgresql-demo
+    app.kubernetes.io/name: postgresql-demo
+    app.openshift.io/runtime: postgresql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  volumeMode: Filesystem

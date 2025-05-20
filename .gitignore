@@ -1,0 +1,4 @@
+./00-sample-apps/**/target/*
+dummy
+01-opentelemetry-docker/*.env
+!01-opentelemetry-docker/values.env
