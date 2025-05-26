@@ -1,0 +1,11 @@
+services:
+  springboot-kafka:
+    build:
+      context: .
+      dockerfile: Dockerfile.otel-instrument
+    container_name: springboot-kafka
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./values.env
