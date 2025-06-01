@@ -1,77 +1,109 @@
 # Opentelemetry in Docker
 
-## List of sample applications
+## Run the observability tools
 
-Use this README file for endpoints about the sample applications
-
-1. [springboot-kafka](./00-sample-apps/kafka-springboot-otel/README.md)
-2. [springboot-todo-postgresdb](./00-sample-apps/springboot-todo-postgresdb/README.md)
-
-## Steps to run opentelemtey in docker/podman
-
-Packages for sample are [here](./01-opentelemetry-container/sample-application/)  
-java agent for opentelemetry is [here](./01-opentelemetry-container/sample-application/javaagent.jar)
-
-This agent can be downloaded from [here](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases)
-
-```shell script
-docker-compose -f 01-opentelemetry-container/docker-compose.yaml up -d
-```
-
-Services that starts up in docker-compose  
+### List of observability apps running in docker compose file
 
 1. PostgresDB
 2. Kafka and Zookeeper + kafdrop (kafka console)
-3. Jaeger
-4. Prometheus
+3. Jaeger (or) Grafana tempo
+4. Prometheus - [config file](./01-opentelemetry-container/prometheus-container-configs/prometheus.yml)
 5. Grafana
-6. OpenTelemetry
+6. OpenTelemetry - [config file](./01-opentelemetry-container/otel-container-configs/otelcol-config.yaml)
 
-### Java apps
+```shell script
+# Create a common network for all applications
+podman network create otel-demo
+```
 
-For instrumenting java apps.  
-Download the opentelemetry javaagent jar from [opentelemetry-java-instrumentation GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases) page
+```shell script
+# Run the observability tools in containers
+podman compose -f 01-opentelemetry-container/docker-compose.yaml up -d
+```
+
+## Run the sample applications
+
+
+### List of sample applications
+
+Some apps requires database (Postgres is used for demo apps)
+
+Run the postgres with compose file
+
+```shell script
+podman compose -f 00-sample-apps/databases/docker-compose.yaml up -d
+```
+
+- Java based apps - Auto Instrumentation
+
+1. [Spring boot Kafka app](./00-sample-apps/springboot-kafka/README.md) Auto-instrumented with java agent running in docker-compose
+
+2. [Spring Boot Todo Postgres](./00-sample-apps/springboot-todo-postgresdb/README.md) Auto-instrumented with java agent running in docker-compose
+
+Download the opentelemetry java agent jar from [opentelemetry-java-instrumentation GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases) page using following commands
+
+If application requires database, setup the database using following
+
+```shell script
+podman compose -f 00-sample-apps/databases/docker-compose.yaml up -d
+```
 
 ```shell script
 # Specify the required version of java otel agent
 export OTEL_JAVA_INSTRUMENT_JAR_VER=v2.16.0
-
-# Download the java agent
-wget -p 01-opentelemetry-container/otel-agents/javaagent-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/${OTEL_JAVA_INSTRUMENT_JAR_VER}/opentelemetry-javaagent.jar
 ```
-
-___Run the application with otel agents___  
-
-{SAMPLE_APP_NAME} is the project name (jar file name) placed in [sample-applications](./01-opentelemetry-container/sample-applications/)  
-
-Available examples to run  
-
-To run apps in local
 
 ```shell script
-## A demo springboot application with kafka
-export SAMPLE_APP_NAME=springboot-todo-postgresdb
-
-# Package the java as jar
-mvn -f 00-sample-apps/${SAMPLE_APP_NAME}/pom.xml package -DskipTests
-
-# Change the mvn package jar file name
-mv 00-sample-apps/${SAMPLE_APP_NAME}/target/${SAMPLE_APP_NAME}*.jar 00-sample-apps/${SAMPLE_APP_NAME}/target/${SAMPLE_APP_NAME}.jar
-
-# Start the application with jar file
-java  -javaagent:./01-opentelemetry-container/otel-agents/javaagent-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar -Dotel.logs.exporter=otlp -Dotel.traces.exporter=otlp -Dotel.metrics.exporter=otlp -Dotel.exporter.otlp.endpoint=http://localhost:4318 -Dotel.service.name=${SAMPLE_APP_NAME} -jar ./00-sample-apps/${SAMPLE_APP_NAME}/target/${SAMPLE_APP_NAME}.jar
+# Provide the sample java application name 
+export SAMPLE_APP_NAME=folder_name_in_00-sample-apps
 ```
 
-___Collect telemetry data from kafka consumer in JSON format___
-
-```bash
-kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic apmtraces --from-beginning > ./sample-json-files/apmtraces-1.json
+```shell script
+# Download the java agent - For java based applications
+wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/${OTEL_JAVA_INSTRUMENT_JAR_VER}/opentelemetry-javaagent.jar 
 ```
 
-```bash
-kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic apmlogs --from-beginning > ./sample-json-files/apmlogs-1.json
+```shell script
+mkdir -p 00-sample-apps/${SAMPLE_APP_NAME}/otel-agents/
 ```
 
-```bash
-kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic apmmetrics --from-beginning > ./sample-json-files/apmmetrics-1.json
+```shell script
+# Move the downloaded shell script to the sample java application
+mv opentelemetry-javaagent.jar 00-sample-apps/${SAMPLE_APP_NAME}/otel-agents/javaagent-otel-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar
+```
+
+```shell script
+# Move to the directory where application is present
+cd 00-sample-apps/${SAMPLE_APP_NAME}
+```
+
+```shell script
+# Package the jar file (Verify the installed java version and then run)
+./mvnw clean package -DskipTests
+```
+
+```shell script
+# Build image and run container with docker compose
+podman compose -f ./docker/docker-compose.yml up -d
+```
+
+## Collect telemetry data from kafka consumer in JSON format
+
+An option step: Since data is already visualized in Grafana dashboard.
+
+Collecting the telemetry data in JSON format is for reference.
+
+```shell script
+# Collect traces of the applications
+podman exec confluent-kafka_broker /bin/kafka-console-consumer --bootstrap-server localhost:29092 --topic traces --from-beginning > ./sample-json-files/apptraces.json
+```
+
+```shell script
+# Collect logs of the applications
+podman exec confluent-kafka_broker /bin/kafka-console-consumer --bootstrap-server localhost:29092 --topic logs --from-beginning > ./sample-json-files/apmlogs.json
+```
+
+```shell script
+# collect metrics of the applications
+podman exec confluent-kafka_broker /bin/kafka-console-consumer --bootstrap-server localhost:29092 --topic metrics --from-beginning > ./sample-json-files/apmmetrics.json
 ```

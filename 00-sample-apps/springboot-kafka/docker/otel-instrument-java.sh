@@ -1,6 +1,8 @@
 #!/bin/bash
 
-java -javaagent:/javaagent-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar \
+ls -la /app/
+
+java -javaagent:javaagent-otel-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar \
      -Dotel.service.name=${SAMPLE_APP_NAME} \
      -Dotel.exporter.otlp.endpoint=${OTEL_URL} \
      -Dotel.traces.exporter=${OTLP_PROTOCOL} \

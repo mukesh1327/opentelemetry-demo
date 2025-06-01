@@ -20,29 +20,30 @@ exporters:
       - 'kafka:9092'
     encoding: otlp_json
     protocol_version: 3.7.0
-    topic: apmlogs
-
-  kafka/metrics:
-    brokers:
-      - 'kafka:9092'
-    encoding: otlp_json
-    protocol_version: 3.7.0
-    topic: apmmetrics
+    topic: applogs
 
   kafka/traces:
     brokers:
       - 'kafka:9092'
     encoding: otlp_json
     protocol_version: 3.7.0
-    topic: apmtraces
+    topic: apptraces
+
+  kafka/metrics:
+    brokers:
+      - 'kafka:9092'
+    encoding: otlp_json
+    protocol_version: 3.7.0
+    topic: appmetrics
+
 
   prometheus:
     endpoint: "0.0.0.0:9090"
     resource_to_telemetry_conversion:
       enabled: true
 
-  otlp:
-    endpoint: "jaeger:14250"
+  otlp/jaeger:
+    endpoint: "http://tempo:4317"
     tls:
       insecure: true
     
@@ -55,7 +56,7 @@ service:
       receivers: [otlp]
 
     traces:
-      exporters: [debug, kafka/traces]
+      exporters: [debug, kafka/traces, otlp/jaeger]
       processors: [batch]
       receivers: [otlp]
 

@@ -1,20 +1,5 @@
 services:
 
-# Postgresql
-  postgres:
-    image: docker.io/library/postgres:16
-    container_name: demo-postgres
-    restart: always
-    ports:
-      - "5433:5432"
-    env_file:
-      - ./values.env
-    volumes:
-      - demo-postgres-data:/var/lib/postgresql/data
-    networks:
-      - otel-demo
-
-#======================================================
 
 # Zookeeper
   zookeeper:
@@ -62,21 +47,44 @@ services:
 
 # Jaeger
   jaeger:
-    image: docker.io/jaegertracing/all-in-one
+    image: docker.io/jaegertracing/jaeger
     container_name: jaeger
     restart: unless-stopped
     env_file:
       - ./values.env
     ports:
-      - "5775:5775/udp"
-      - "6831:6831/udp"
-      - "6832:6832/udp"
-      - "5778:5778"
-      - "14268:14268"
-      - "14250:14250"
+      - "8880:8888"
+      - "8881:8889"
       - "16686:16686"
+      - "4311:4317"
+      - "4312:4318"
     networks:
       - otel-demo
+
+
+# tempo
+  tempo:
+    image: docker.io/grafana/tempo
+    container_name: tempo
+    restart: unless-stopped
+    env_file:
+      - ./values.env
+    ports:
+      - "14269:14268"  # jaeger ingest
+      - "3201:3200"   # tempo
+      - "9096:9095" # tempo grpc
+      - "4313:4317"  # otlp grpc
+      - "4314:4318"  # otlp http
+      - "9412:9411"   # zipkin
+    user: 0:0
+    privileged: true
+    volumes:
+      - ./tempo-container-configs/tempo-config.yml:/etc/tempo.yaml
+      - tempo-var-data:/tmp/tempo/traces
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    networks:
+      - otel-demo
+
 
 # Prometheus
   prometheus:
@@ -85,8 +93,10 @@ services:
     restart: unless-stopped
     ports:
       - "9091:9090"
+    user: 0:0
+    privileged: true
     volumes:
-      - ./prometheus-configs/prometheus.yaml:/etc/prometheus/prometheus.yaml
+      - ./prometheus-container-configs/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-data:/prometheus
     networks:
       - otel-demo
@@ -102,6 +112,7 @@ services:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./grafana-container-configs/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
     networks:
       - otel-demo
 
@@ -118,10 +129,10 @@ services:
       - "8888:8888" # Prometheus metrics
       - "9090:9090" # Prometheus metrics
     command: [ "--config=/etc/otelcol-contrib/config.yaml" ]
-    # user: 0:0
-    # privileged: true
+    user: 0:0
+    privileged: true
     volumes:
-      - ./otel-configs/otelcol-config.yaml:/etc/otelcol-contrib/config.yaml
+      - ./otel-container-configs/otelcol-config.yaml:/etc/otelcol-contrib/config.yaml
     networks:
       - otel-demo
     depends_on:
@@ -133,12 +144,12 @@ services:
 
 networks:
   otel-demo:
-    driver: bridge
+    external: true
 
-volumes:  
-  demo-postgres-data:
-    driver: local
+volumes:
   prometheus-data:
     driver: local
   grafana-data:
+    driver: local
+  tempo-var-data:
     driver: local

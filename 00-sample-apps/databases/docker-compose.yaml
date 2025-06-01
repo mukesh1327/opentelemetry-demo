@@ -1,0 +1,26 @@
+services:
+
+# Postgresql
+  postgres:
+    image: docker.io/library/postgres:16
+    container_name: otel-postgres
+    restart: always
+    user: 0:0
+    privileged: true
+    ports:
+      - "5433:5432"
+    env_file:
+      - ./values.env
+    volumes:
+      - otel-postgres-data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - otel-demo
+
+networks:
+  otel-demo:
+    external: true
+
+volumes:  
+  otel-postgres-data:
+    driver: local
