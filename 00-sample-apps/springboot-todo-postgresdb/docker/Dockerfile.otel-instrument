@@ -1,0 +1,23 @@
+# Stage 2: Runtime stage using OpenJDK runtime
+FROM registry.access.redhat.com/ubi9/openjdk-21
+
+ARG OTEL_JAVA_INSTRUMENT_JAR_VER=v2.16.0
+
+WORKDIR /app
+
+# Copy the jar file from the build stage
+COPY ../target/springboot-todo-*.jar springboot-todo-postgresdb.jar
+
+COPY ../otel-agents/javaagent-otel-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar /app/javaagent-otel-${OTEL_JAVA_INSTRUMENT_JAR_VER}.jar
+
+COPY docker/otel-instrument-java.sh /app/otel-instrument-java.sh
+
+# Expose the port the application will run on
+EXPOSE 8080
+
+# Entry point for the application
+ENTRYPOINT ["./otel-instrument-java.sh"]
+
+
+
+# podman build -t sample-java -f 00-sample-apps/springboot-kafka/docker/Dockerfile.otel-instrument 00-sample-apps/springboot-kafka

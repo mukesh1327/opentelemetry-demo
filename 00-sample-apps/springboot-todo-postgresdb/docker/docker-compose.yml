@@ -1,0 +1,17 @@
+services:
+  springboot-todo:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.otel-instrument
+    container_name: springboot-todo
+    restart: always
+    ports:
+      - "8082:8080"
+    env_file:
+      - ./values.env
+    networks:
+      - otel-demo
+
+networks:
+  otel-demo:
+    external: true
