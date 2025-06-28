@@ -1,32 +1,28 @@
 services:
 
-
-# Zookeeper
-  zookeeper:
-    image: docker.io/confluentinc/cp-zookeeper:latest
-    container_name: confluent-kafka_zookeeper
-    ports:
-      - "2181:2181"
-    env_file:
-      - ./values.env
-    restart: unless-stopped
-    networks:
-      - otel-demo
-
 # Kafka
   kafka:
-    image: docker.io/confluentinc/cp-kafka:latest
-    container_name: confluent-kafka_broker
-    depends_on:
-      - zookeeper
-    restart: unless-stopped
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka-kraft
     ports:
       - "9092:9092"
       - "29092:29092"
-    env_file:
-      - ./values.env
+    environment:
+      KAFKA_KRAFT_BROKER_ID: 1
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    volumes:
+      - kafka-data:/var/lib/kafka/data
     networks:
       - otel-demo
+    restart: unless-stopped
 
 # Kafdrop
   kafdrop:
