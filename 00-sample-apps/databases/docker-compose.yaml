@@ -9,8 +9,10 @@ services:
     privileged: true
     ports:
       - "5433:5432"
-    env_file:
-      - ./values.env
+    environment:
+      POSTGRES_USER: "demouser1"
+      POSTGRES_PASSWORD: "demouser1"
+      POSTGRES_DB: "demodb"
     volumes:
       - otel-postgres-data:/var/lib/postgresql/data
       - ./init-scripts:/docker-entrypoint-initdb.d

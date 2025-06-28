@@ -31,10 +31,9 @@ services:
     restart: "no"
     ports:
       - "9000:9000"
-    env_file:
-      - ./values.env
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
     depends_on:
-      - "zookeeper"
       - "kafka"
     networks:
       - otel-demo
@@ -46,8 +45,9 @@ services:
     image: docker.io/jaegertracing/jaeger
     container_name: jaeger
     restart: unless-stopped
-    env_file:
-      - ./values.env
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+      COLLECTOR_ZIPKIN_HTTP_PORT_ENABLED: "true"
     ports:
       - "8880:8888"
       - "8881:8889"
@@ -63,8 +63,6 @@ services:
     image: docker.io/grafana/tempo
     container_name: tempo
     restart: unless-stopped
-    env_file:
-      - ./values.env
     ports:
       - "14269:14268"  # jaeger ingest
       - "3201:3200"   # tempo
@@ -102,8 +100,8 @@ services:
     image: docker.io/grafana/grafana-enterprise:latest
     container_name: grafana
     restart: unless-stopped
-    env_file:
-      - ./values.env
+    environment:
+      GF_PLUGINS_PREINSTALL: "grafana-clock-panel, grafana-simple-json-datasource"
     ports:
       - "3000:3000"
     volumes:
@@ -132,7 +130,6 @@ services:
     networks:
       - otel-demo
     depends_on:
-       - zookeeper
        - kafka
        - prometheus
 
@@ -148,4 +145,6 @@ volumes:
   grafana-data:
     driver: local
   tempo-var-data:
+    driver: local
+  kafka-data:
     driver: local
