@@ -1,4 +1,4 @@
-# Opentelemetry in Docker
+# Opentelemetry in Docker/Podman
 
 ## Run the observability tools
 
@@ -34,11 +34,18 @@ Run the postgres with compose file
 podman compose -f 00-sample-apps/databases/docker-compose.yaml up -d
 ```
 
-- Java based apps - Auto Instrumentation
+1. Java based apps - Auto Instrumentation
 
-1. [Spring boot Kafka app](./00-sample-apps/springboot-kafka/README.md) Auto-instrumented with java agent running in docker-compose
+***Spring Boot***
+- [Spring boot Kafka app](./00-sample-apps/springboot-kafka/README.md) Auto-instrumented with java agent running in docker-compose
 
-2. [Spring Boot Todo Postgres](./00-sample-apps/springboot-todo-postgresdb/README.md) Auto-instrumented with java agent running in docker-compose
+- [Spring Boot Todo Postgres](./00-sample-apps/springboot-todo-postgresdb/README.md) Auto-instrumented with java agent running in docker-compose
+
+***Quarkus***  
+Note: Opentelemetry is supported only for JVM (not supported in Native and Native-micro build)
+
+- [Quarkus Todo Postgres](./00-sample-apps/Quarkus-todo-postgresDB/README.md) Auto-instrumented with java agent running in docker-compose
+
 
 Download the opentelemetry java agent jar from [opentelemetry-java-instrumentation GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases) page using following commands
 
@@ -49,7 +56,7 @@ podman compose -f 00-sample-apps/databases/docker-compose.yaml up -d
 ```
 
 ```shell script
-# Specify the required version of java otel agent
+# Specify the required version of java otel agent (Tested with this version so far)
 export OTEL_JAVA_INSTRUMENT_JAR_VER=v2.16.0
 ```
 
@@ -82,10 +89,13 @@ cd 00-sample-apps/${SAMPLE_APP_NAME}
 ./mvnw clean package -DskipTests
 ```
 
+Note: If there is .dockerignore file make sure to add !otel-agents/*
+
 ```shell script
 # Build image and run container with docker compose
 podman compose -f ./docker/docker-compose.yml up -d
 ```
+
 
 ## Collect telemetry data from kafka consumer in JSON format
 

@@ -1,4 +1,3 @@
-# Stage 2: Runtime stage using OpenJDK runtime
 FROM registry.access.redhat.com/ubi9/openjdk-17
 
 ARG OTEL_JAVA_INSTRUMENT_JAR_VER=v2.16.0
