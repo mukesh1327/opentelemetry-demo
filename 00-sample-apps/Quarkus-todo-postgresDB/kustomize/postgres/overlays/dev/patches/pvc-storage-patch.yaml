@@ -1,0 +1,9 @@
+[
+  { "op": "replace", "path": "/spec/resources/requests", "value": { "storage": "3Gi" } },
+  {
+    "op": "replace",
+    "path": "/spec/accessModes",
+    "value": ["ReadWriteOnce"]
+  },
+  { "op": "replace", "path": "/spec/volumeMode", "value": "Filesystem" }
+]

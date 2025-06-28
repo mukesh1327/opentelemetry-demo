@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: quarkus-nativemicro-todo-app
+  labels:
+    app: quarkus-nativemicro-todo-app
+    app.kubernetes.io/component: quarkus-nativemicro-todo-app
+    app.kubernetes.io/instance: quarkus-nativemicro-todo-app
+    app.kubernetes.io/name: quarkus-nativemicro-todo-app
+    app.kubernetes.io/part-of: java-apps
+    app.openshift.io/runtime: quarkus
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+  selector:
+    app: quarkus-nativemicro-todo-app
+    deployment: quarkus-nativemicro-todo-app

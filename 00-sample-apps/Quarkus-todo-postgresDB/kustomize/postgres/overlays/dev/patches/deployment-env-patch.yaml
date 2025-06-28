@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quarkus-todo-postgres
+spec:
+  template:
+    spec:
+      containers:
+        - name: quarkus-todo-postgres
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: quarkus-todo-postgres-configs
+                  key: POSTGRESQL_USER
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: quarkus-todo-postgres-configs
+                  key: POSTGRESQL_PASSWORD
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: quarkus-todo-postgres-configs
+                  key: POSTGRESQL_DATABASE

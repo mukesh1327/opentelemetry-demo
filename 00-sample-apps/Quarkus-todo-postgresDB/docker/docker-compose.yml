@@ -1,0 +1,17 @@
+services:
+  quakrus-todo-postgres:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.otel-instrument-jvm
+    container_name: quakrus-todo-postgres
+    restart: always
+    ports:
+      - "8081:8080"
+    env_file:
+      - ./values.env
+    networks:
+      - otel-demo
+
+networks:
+  otel-demo:
+    external: true

@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quarkus-jvm-todo-app
+  labels:
+    app.kubernetes.io/component: quarkus-jvm-todo-app
+    app.kubernetes.io/instance: quarkus-jvm-todo-app
+    app.kubernetes.io/name: quarkus-jvm-todo-app
+    app.kubernetes.io/part-of: java-apps
+    app.openshift.io/runtime: quarkus
+spec:
+  template:
+    spec:
+      containers:
+        - name: quarkus-jvm-todo-app
+          image: 'quay.io/mukeshs1306/quarkus-jvm-todo:latest'
+          resources:
+            requests:
+              cpu: 200m
+              memory: 420Mi
+            limits:
+              cpu: 250m
+              memory: 450Mi
+          ports:
+            - containerPort: 8080
+              protocol: TCP

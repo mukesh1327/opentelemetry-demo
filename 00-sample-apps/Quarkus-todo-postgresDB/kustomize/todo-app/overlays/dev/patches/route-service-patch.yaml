@@ -1,0 +1,4 @@
+[
+  {"op": "add", "path": "/spec/subdomain", "value": "quarkus-jvm-todo-app"},
+  {"op": "add", "path": "/spec/to/name", "value": "quarkus-jvm-todo-app"}
+]

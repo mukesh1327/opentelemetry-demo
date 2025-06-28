@@ -1,0 +1,52 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: postgres-todo-quarkus
+  labels:
+    app: postgres-todo-quarkus
+    app.openshift.io/runtime: postgresql
+spec:
+  selector:
+    matchLabels:
+      app: postgres-todo-quarkus
+  template:
+    metadata:
+      labels:
+        app: postgres-todo-quarkus
+    spec:
+      volumes:
+        - name: postgres-todo-quarkus-vol
+          persistentVolumeClaim:
+            claimName: postgres-todo-quarkus
+      containers:
+        - name: postgres-todo-quarkus
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-todo-quarkus-configs
+                  key: POSTGRESQL_USER
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-todo-quarkus-configs
+                  key: POSTGRESQL_PASSWORD
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-todo-quarkus-configs
+                  key: POSTGRESQL_DATABASE
+          resources:
+            limits:
+              cpu: 250m
+              memory: 450Mi
+            requests:
+              cpu: 200m
+              memory: 420Mi
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - name: postgres-todo-quarkus-vol
+              mountPath: /var/lib/pgsql/data
+          image: 'registry.redhat.io/rhel8/postgresql-15'

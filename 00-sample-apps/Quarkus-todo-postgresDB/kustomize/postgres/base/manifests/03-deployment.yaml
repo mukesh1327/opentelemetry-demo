@@ -1,0 +1,34 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quarkus-todo-postgres
+  labels:
+    app.kubernetes.io/component: quarkus-todo-postgres
+    app.kubernetes.io/instance: quarkus-todo-postgres
+    app.kubernetes.io/name: quarkus-todo-postgres
+    app.openshift.io/runtime: postgresql
+spec:
+  template:
+    spec:
+      containers:
+        - name: quarkus-todo-postgres
+          image: 'registry.redhat.io/rhel9/postgresql-15'
+          resources:
+            requests:
+              cpu: 200m
+              memory: 420Mi
+            limits:
+              cpu: 250m
+              memory: 450Mi
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: quarkus-todo-postgres-vol
+              mountPath: /var/lib/pgsql/data
+      restartPolicy: Always
+      volumes:
+        - name: quarkus-todo-postgres-vol
+          persistentVolumeClaim:
+            claimName: quarkus-todo-postgres

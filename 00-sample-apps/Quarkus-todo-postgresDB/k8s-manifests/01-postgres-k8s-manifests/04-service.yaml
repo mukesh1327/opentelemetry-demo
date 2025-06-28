@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres-todo-quarkus
+  labels:
+    app: postgres-todo-quarkus
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 5432-tcp
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+  selector:
+    app: postgres-todo-quarkus

@@ -1,0 +1,24 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: quarkus-nativemicro-todo-app
+  labels:
+    app: quarkus-nativemicro-todo-app
+    app.kubernetes.io/component: quarkus-nativemicro-todo-app
+    app.kubernetes.io/instance: quarkus-nativemicro-todo-app
+    app.kubernetes.io/name: quarkus-nativemicro-todo-app
+    app.kubernetes.io/part-of: java-apps
+    app.openshift.io/runtime: quarkus
+spec:
+  # host: 
+  subdomain: quarkus-nativemicro-todo-app
+  to:
+    kind: Service
+    name: quarkus-nativemicro-todo-app
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

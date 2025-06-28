@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: quarkus-todo-postgres
+  labels:
+    app.kubernetes.io/component: quarkus-todo-postgres
+    app.kubernetes.io/instance: quarkus-todo-postgres
+    app.kubernetes.io/name: quarkus-todo-postgres
+    app.openshift.io/runtime: postgresql
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 5432-tcp
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP

@@ -1,0 +1,16 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: quarkus-todo-postgres
+  labels:
+    app.kubernetes.io/component: quarkus-todo-postgres
+    app.kubernetes.io/instance: quarkus-todo-postgres
+    app.kubernetes.io/name: quarkus-todo-postgres
+    app.openshift.io/runtime: postgresql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  volumeMode: Filesystem

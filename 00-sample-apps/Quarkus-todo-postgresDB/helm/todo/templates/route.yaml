@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ include "helm.fullname" . }}
+  labels:
+    {{- include "helm.labels" . | nindent 4 }}
+spec:
+  # host: 
+  subdomain: {{ include "helm.fullname" . }}
+  to:
+    kind: Service
+    name: {{ include "helm.fullname" . }}
+    weight: 100
+  port:
+    targetPort: {{ .Values.service.port }}-http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quarkus-nativemicro-todo-app
+  labels:
+    app: quarkus-nativemicro-todo-app
+    app.kubernetes.io/component: quarkus-nativemicro-todo-app
+    app.kubernetes.io/instance: quarkus-nativemicro-todo-app
+    app.kubernetes.io/name: quarkus-nativemicro-todo-app
+    app.kubernetes.io/part-of: java-apps
+    app.openshift.io/runtime: quarkus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarkus-nativemicro-todo-app
+  template:
+    metadata:
+      labels:
+        app: quarkus-nativemicro-todo-app
+        deployment: quarkus-nativemicro-todo-app
+    spec:
+      containers:
+        - name: quarkus-nativemicro-todo-app
+          image: 'quay.io/mukeshs1306/cloudxplorer13-quarkus-nativemicro-hello:latest'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: APP_TITLE
+              valueFrom:
+                secretKeyRef:
+                  name: quarkus-nativemicro-todo-app
+                  key: APP_TITLE
+          resources: {}
