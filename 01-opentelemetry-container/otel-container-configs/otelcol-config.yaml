@@ -15,21 +15,21 @@ exporters:
   debug:
     verbosity: detailed
 
-  kafka/logs:
+  kafka/applogs:
     brokers:
       - 'kafka:9092'
     encoding: otlp_json
     protocol_version: 3.7.0
     topic: applogs
 
-  kafka/traces:
+  kafka/apptraces:
     brokers:
       - 'kafka:9092'
     encoding: otlp_json
     protocol_version: 3.7.0
     topic: apptraces
 
-  kafka/metrics:
+  kafka/appmetrics:
     brokers:
       - 'kafka:9092'
     encoding: otlp_json
@@ -42,25 +42,33 @@ exporters:
     resource_to_telemetry_conversion:
       enabled: true
 
-  otlp/jaeger:
+  otlp/tempo:
     endpoint: "http://tempo:4317"
     tls:
       insecure: true
-    
+
+  otlp/jaeger:
+    endpoint: "http://jaeger:4317"
+    tls:
+      insecure: true
+
+  otlphttp/loki:
+    endpoint: http://loki:3100/otlp
+
 service:
   pipelines:
 
     logs:
-      exporters: [debug, kafka/logs]
+      exporters: [debug, kafka/applogs, otlphttp/loki]
       processors: [batch]
       receivers: [otlp]
 
     traces:
-      exporters: [debug, kafka/traces, otlp/jaeger]
+      exporters: [debug, kafka/apptraces, otlp/jaeger, otlp/tempo]
       processors: [batch]
       receivers: [otlp]
 
     metrics:
-      exporters: [debug, kafka/metrics, prometheus]
+      exporters: [debug, kafka/appmetrics, prometheus]
       processors: [batch]
       receivers: [otlp]

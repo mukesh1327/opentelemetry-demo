@@ -96,6 +96,10 @@ Note: If there is .dockerignore file make sure to add !otel-agents/*
 podman compose -f ./docker/docker-compose.yml up -d
 ```
 
+Check all the containers are up and running
+```shell script
+podman ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}"
+```
 
 ## Collect telemetry data from kafka consumer in JSON format
 
@@ -105,15 +109,21 @@ Collecting the telemetry data in JSON format is for reference.
 
 ```shell script
 # Collect traces of the applications
-podman exec confluent-kafka_broker /bin/kafka-console-consumer --bootstrap-server localhost:29092 --topic traces --from-beginning > ./sample-json-files/apptraces.json
+podman exec kafka-kraft /bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic apptraces --from-beginning --partition 0 > ./sample-json-files/apptraces.json
 ```
 
 ```shell script
 # Collect logs of the applications
-podman exec confluent-kafka_broker /bin/kafka-console-consumer --bootstrap-server localhost:29092 --topic logs --from-beginning > ./sample-json-files/apmlogs.json
+podman exec kafka-kraft /bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic applogs --from-beginning --partition 0 > ./sample-json-files/applogs.json
 ```
 
 ```shell script
 # collect metrics of the applications
-podman exec confluent-kafka_broker /bin/kafka-console-consumer --bootstrap-server localhost:29092 --topic metrics --from-beginning > ./sample-json-files/apmmetrics.json
+podman exec kafka-kraft /bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic appmetrics --from-beginning --partition 0 > ./sample-json-files/appmetrics.json
 ```
+
+### References from
+
+<!-- podman info --debug | grep -A5 'log:' -->
+
+- https://github.com/ruanbekker/docker-promtail-loki

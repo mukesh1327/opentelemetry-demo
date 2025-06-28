@@ -1,0 +1,190 @@
+{
+  "resourceLogs": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "bee5932f70778d72e6952685bcfa3d6f7d89471a1164b69a55978f59824071ad"
+            }
+          },
+          { "key": "host.arch", "value": { "stringValue": "amd64" } },
+          { "key": "host.name", "value": { "stringValue": "bee5932f7077" } },
+          {
+            "key": "os.description",
+            "value": { "stringValue": "Linux 5.14.0-570.19.1.el9_6.x86_64" }
+          },
+          { "key": "os.type", "value": { "stringValue": "linux" } },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/usr/lib/jvm/java-21-openjdk-21.0.6.0.7-1.el9.x86_64/bin/java"
+                  },
+                  { "stringValue": "-XX:MaxRAMPercentage=80.0" },
+                  { "stringValue": "-XX:+UseParallelGC" },
+                  { "stringValue": "-XX:MinHeapFreeRatio=10" },
+                  { "stringValue": "-XX:MaxHeapFreeRatio=20" },
+                  { "stringValue": "-XX:GCTimeRatio=4" },
+                  { "stringValue": "-XX:AdaptiveSizePolicyWeight=90" },
+                  { "stringValue": "-XX:+ExitOnOutOfMemoryError" },
+                  { "stringValue": "-javaagent:./javaagent-otel-v2.16.0.jar" },
+                  {
+                    "stringValue": "-Dotel.service.name=quakrus-todo-postgres"
+                  },
+                  {
+                    "stringValue": "-Dotel.exporter.otlp.endpoint=http://otelcol:4318"
+                  },
+                  { "stringValue": "-Dotel.traces.exporter=otlp" },
+                  { "stringValue": "-Dotel.metrics.exporter=otlp" },
+                  { "stringValue": "-Dotel.logs.exporter=otlp" },
+                  {
+                    "stringValue": "-Dotel.resource.attributes=service.name=quakrus-todo-postgres"
+                  },
+                  { "stringValue": "-Dquarkus.http.host=0.0.0.0" },
+                  {
+                    "stringValue": "-Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+                  },
+                  { "stringValue": "-cp" },
+                  { "stringValue": "." },
+                  { "stringValue": "-jar" },
+                  { "stringValue": "/deployments/quarkus-run.jar" }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/usr/lib/jvm/java-21-openjdk-21.0.6.0.7-1.el9.x86_64/bin/java"
+            }
+          },
+          { "key": "process.pid", "value": { "intValue": "1" } },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Red Hat, Inc. OpenJDK 64-Bit Server VM 21.0.6+7-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": { "stringValue": "OpenJDK Runtime Environment" }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": { "stringValue": "21.0.6+7-LTS" }
+          },
+          {
+            "key": "service.instance.id",
+            "value": { "stringValue": "0cabadf9-388d-4452-a6dc-60592edc8af7" }
+          },
+          {
+            "key": "service.name",
+            "value": { "stringValue": "quakrus-todo-postgres" }
+          },
+          {
+            "key": "service.version",
+            "value": { "stringValue": "1.0.0-SNAPSHOT" }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": { "stringValue": "opentelemetry-java-instrumentation" }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": { "stringValue": "2.16.0" }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": { "stringValue": "java" }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": { "stringValue": "opentelemetry" }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": { "stringValue": "1.50.0" }
+          }
+        ]
+      },
+      "scopeLogs": [
+        {
+          "scope": {
+            "name": "org.hibernate.engine.jdbc.spi.SqlExceptionHelper"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112928651000000",
+              "observedTimeUnixNano": "1751112928651375178",
+              "severityNumber": 13,
+              "severityText": "WARN",
+              "body": { "stringValue": "SQL Error: 0, SQLState: 08001" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112928651000000",
+              "observedTimeUnixNano": "1751112928651505386",
+              "severityNumber": 17,
+              "severityText": "ERROR",
+              "body": { "stringValue": "The connection attempt failed." },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.agroal.pool" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112928650000000",
+              "observedTimeUnixNano": "1751112928651027054",
+              "severityNumber": 13,
+              "severityText": "WARN",
+              "body": {
+                "stringValue": "Datasource '\u003cdefault\u003e': The connection attempt failed."
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.quarkus.runtime.Application" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112928696000000",
+              "observedTimeUnixNano": "1751112928697305484",
+              "severityNumber": 17,
+              "severityText": "ERROR",
+              "body": { "stringValue": "Failed to start application" },
+              "attributes": [
+                {
+                  "key": "exception.message",
+                  "value": { "stringValue": "Failed to start quarkus" }
+                },
+                {
+                  "key": "exception.stacktrace",
+                  "value": {
+                    "stringValue": "java.lang.RuntimeException: Failed to start quarkus\n\tat io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)\n\tat io.quarkus.runtime.Application.start(Application.java:101)\n\tat io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:121)\n\tat io.quarkus.runtime.Quarkus.run(Quarkus.java:77)\n\tat io.quarkus.runtime.Quarkus.run(Quarkus.java:48)\n\tat io.quarkus.runtime.Quarkus.run(Quarkus.java:137)\n\tat io.quarkus.runner.GeneratedMain.main(Unknown Source)\n\tat io.quarkus.bootstrap.runner.QuarkusEntryPoint.doRun(QuarkusEntryPoint.java:68)\n\tat io.quarkus.bootstrap.runner.QuarkusEntryPoint.main(QuarkusEntryPoint.java:36)\nCaused by: jakarta.persistence.PersistenceException: [PersistenceUnit: \u003cdefault\u003e] Unable to build Hibernate SessionFactory\n\tat io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.persistenceException(FastBootEntityManagerFactoryBuilder.java:129)\n\tat io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:89)\n\tat io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:72)\n\tat jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)\n\tat jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)\n\tat io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:163)\n\tat io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:63)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\nCaused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [The connection attempt failed.] [n/a]\n\tat org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)\n\tat org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)\n\tat org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)\n\tat org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)\n\tat org.hibernate.resource.transaction.backend.jta.internal.DdlTransactionIsolatorJtaImpl.getIsolatedConnection(DdlTransactionIsolatorJtaImpl.java:77)\n\tat org.hibernate.resource.transaction.backend.jta.internal.DdlTransactionIsolatorJtaImpl.getIsolatedConnection(DdlTransactionIsolatorJtaImpl.java:67)\n\tat org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)\n\tat org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)\n\tat org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)\n\tat org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)\n\tat org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.\u003cinit\u003e(DatabaseInformationImpl.java:60)\n\tat org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)\n\tat org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:93)\n\tat org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)\n\tat org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)\n\tat java.base/java.util.HashMap.forEach(HashMap.java:1429)\n\tat org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)\n\tat io.quarkus.hibernate.orm.runtime.observers.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:21)\n\tat org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)\n\tat org.hibernate.internal.SessionFactoryImpl.\u003cinit\u003e(SessionFactoryImpl.java:324)\n\tat io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:87)\n\t... 6 more\nCaused by: org.postgresql.util.PSQLException: The connection attempt failed.\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:364)\n\tat org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)\n\tat org.postgresql.jdbc.PgConnection.\u003cinit\u003e(PgConnection.java:273)\n\tat org.postgresql.Driver.makeConnection(Driver.java:446)\n\tat org.postgresql.Driver.connect(Driver.java:298)\n\tat io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)\n\tat io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:580)\n\tat io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:561)\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)\n\tat io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\t... 1 more\nCaused by: java.net.UnknownHostException: otel-postgres\n\tat java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)\n\tat java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)\n\tat java.base/java.net.Socket.connect(Socket.java:751)\n\tat org.postgresql.core.PGStream.createSocket(PGStream.java:260)\n\tat org.postgresql.core.PGStream.\u003cinit\u003e(PGStream.java:121)\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140)\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268)\n\t... 12 more\n"
+                  }
+                },
+                {
+                  "key": "exception.type",
+                  "value": { "stringValue": "java.lang.RuntimeException" }
+                }
+              ],
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        }
+      ],
+      "schemaUrl": "https://opentelemetry.io/schemas/1.24.0"
+    }
+  ]
+}

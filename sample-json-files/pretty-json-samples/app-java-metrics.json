@@ -1,0 +1,1755 @@
+{
+  "resourceLogs": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "stringValue": "bee5932f70778d72e6952685bcfa3d6f7d89471a1164b69a55978f59824071ad"
+            }
+          },
+          { "key": "host.arch", "value": { "stringValue": "amd64" } },
+          { "key": "host.name", "value": { "stringValue": "bee5932f7077" } },
+          {
+            "key": "os.description",
+            "value": { "stringValue": "Linux 5.14.0-570.19.1.el9_6.x86_64" }
+          },
+          { "key": "os.type", "value": { "stringValue": "linux" } },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "stringValue": "/usr/lib/jvm/java-21-openjdk-21.0.6.0.7-1.el9.x86_64/bin/java"
+                  },
+                  { "stringValue": "-XX:MaxRAMPercentage=80.0" },
+                  { "stringValue": "-XX:+UseParallelGC" },
+                  { "stringValue": "-XX:MinHeapFreeRatio=10" },
+                  { "stringValue": "-XX:MaxHeapFreeRatio=20" },
+                  { "stringValue": "-XX:GCTimeRatio=4" },
+                  { "stringValue": "-XX:AdaptiveSizePolicyWeight=90" },
+                  { "stringValue": "-XX:+ExitOnOutOfMemoryError" },
+                  { "stringValue": "-javaagent:./javaagent-otel-v2.16.0.jar" },
+                  {
+                    "stringValue": "-Dotel.service.name=quakrus-todo-postgres"
+                  },
+                  {
+                    "stringValue": "-Dotel.exporter.otlp.endpoint=http://otelcol:4318"
+                  },
+                  { "stringValue": "-Dotel.traces.exporter=otlp" },
+                  { "stringValue": "-Dotel.metrics.exporter=otlp" },
+                  { "stringValue": "-Dotel.logs.exporter=otlp" },
+                  {
+                    "stringValue": "-Dotel.resource.attributes=service.name=quakrus-todo-postgres"
+                  },
+                  { "stringValue": "-Dquarkus.http.host=0.0.0.0" },
+                  {
+                    "stringValue": "-Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+                  },
+                  { "stringValue": "-cp" },
+                  { "stringValue": "." },
+                  { "stringValue": "-jar" },
+                  { "stringValue": "/deployments/quarkus-run.jar" }
+                ]
+              }
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "stringValue": "/usr/lib/jvm/java-21-openjdk-21.0.6.0.7-1.el9.x86_64/bin/java"
+            }
+          },
+          { "key": "process.pid", "value": { "intValue": "1" } },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "stringValue": "Red Hat, Inc. OpenJDK 64-Bit Server VM 21.0.6+7-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": { "stringValue": "OpenJDK Runtime Environment" }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": { "stringValue": "21.0.6+7-LTS" }
+          },
+          {
+            "key": "service.instance.id",
+            "value": { "stringValue": "71c2319e-ff4b-4cde-9d20-3cc51ca772f7" }
+          },
+          {
+            "key": "service.name",
+            "value": { "stringValue": "quakrus-todo-postgres" }
+          },
+          {
+            "key": "service.version",
+            "value": { "stringValue": "1.0.0-SNAPSHOT" }
+          },
+          {
+            "key": "telemetry.distro.name",
+            "value": { "stringValue": "opentelemetry-java-instrumentation" }
+          },
+          {
+            "key": "telemetry.distro.version",
+            "value": { "stringValue": "2.16.0" }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": { "stringValue": "java" }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": { "stringValue": "opentelemetry" }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": { "stringValue": "1.50.0" }
+          }
+        ]
+      },
+      "scopeLogs": [
+        {
+          "scope": {
+            "name": "org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943370000000",
+              "observedTimeUnixNano": "1751112943373214040",
+              "severityNumber": 13,
+              "severityText": "WARN",
+              "body": {
+                "stringValue": "HHH000342: Could not obtain connection to query metadata"
+              },
+              "attributes": [
+                {
+                  "key": "exception.message",
+                  "value": {
+                    "stringValue": "unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]"
+                  }
+                },
+                {
+                  "key": "exception.stacktrace",
+                  "value": {
+                    "stringValue": "org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]\n\tat org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)\n\tat org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)\n\tat org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)\n\tat org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)\n\tat org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.doTheWork(JtaIsolationDelegate.java:206)\n\tat org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.lambda$delegateWork$3(JtaIsolationDelegate.java:91)\n\tat org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.doInSuspendedTransaction(JtaIsolationDelegate.java:125)\n\tat org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.delegateWork(JtaIsolationDelegate.java:88)\n\tat org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320)\n\tat org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)\n\tat org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)\n\tat org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)\n\tat org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)\n\tat org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)\n\tat org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)\n\tat org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:68)\n\tat org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52)\n\tat org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136)\n\tat org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247)\n\tat org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)\n\tat org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:68)\n\tat org.hibernate.boot.internal.SessionFactoryOptionsBuilder.\u003cinit\u003e(SessionFactoryOptionsBuilder.java:290)\n\tat io.quarkus.hibernate.orm.runtime.recording.PrevalidatedQuarkusMetadata.buildSessionFactoryOptionsBuilder(PrevalidatedQuarkusMetadata.java:72)\n\tat io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:84)\n\tat io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:72)\n\tat jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)\n\tat jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)\n\tat io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:163)\n\tat io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:63)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\nCaused by: org.postgresql.util.PSQLException: The connection attempt failed.\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:364)\n\tat org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)\n\tat org.postgresql.jdbc.PgConnection.\u003cinit\u003e(PgConnection.java:273)\n\tat org.postgresql.Driver.makeConnection(Driver.java:446)\n\tat org.postgresql.Driver.connect(Driver.java:298)\n\tat io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)\n\tat io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:580)\n\tat io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:561)\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)\n\tat io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\t... 1 more\nCaused by: java.net.UnknownHostException: otel-postgres\n\tat java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)\n\tat java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)\n\tat java.base/java.net.Socket.connect(Socket.java:751)\n\tat org.postgresql.core.PGStream.createSocket(PGStream.java:260)\n\tat org.postgresql.core.PGStream.\u003cinit\u003e(PGStream.java:121)\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140)\n\tat org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268)\n\t... 12 more\n"
+                  }
+                },
+                {
+                  "key": "exception.type",
+                  "value": {
+                    "stringValue": "org.hibernate.exception.JDBCConnectionException"
+                  }
+                }
+              ],
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.util.ResourceLeakDetector" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942862000000",
+              "observedTimeUnixNano": "1751112942862979847",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.leakDetection.level: simple"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942863000000",
+              "observedTimeUnixNano": "1751112942863057778",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.leakDetection.targetRecords: 4"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.util.internal.CleanerJava9" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942729000000",
+              "observedTimeUnixNano": "1751112942729475647",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "java.nio.ByteBuffer.cleaner(): available"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "org.hibernate.orm.connections.pooling" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943374000000",
+              "observedTimeUnixNano": "1751112943374096735",
+              "severityNumber": 9,
+              "severityText": "INFO",
+              "body": {
+                "stringValue": "HHH10001005: Database info:\n\tDatabase JDBC URL [undefined/unknown]\n\tDatabase driver: undefined/unknown\n\tDatabase version: 12.0\n\tAutocommit mode: undefined/unknown\n\tIsolation level: undefined/unknown\n\tMinimum pool size: undefined/unknown\n\tMaximum pool size: undefined/unknown"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.boot.internal.ClassLoaderAccessImpl"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942474000000",
+              "observedTimeUnixNano": "1751112942474266180",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Not known whether passed class name [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks] is safe"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942474000000",
+              "observedTimeUnixNano": "1751112942474313848",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.noventiqvaluepoint.quarkustodo.model.entity.Tasks"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942522000000",
+              "observedTimeUnixNano": "1751112942522370763",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Not known whether passed class name [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks] is safe"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942522000000",
+              "observedTimeUnixNano": "1751112942522419259",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.noventiqvaluepoint.quarkustodo.model.entity.Tasks"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "io.quarkus.hibernate.orm.runtime.service.FlatClassLoaderService"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942491000000",
+              "observedTimeUnixNano": "1751112942491756735",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "HHH000194: Package not found or no package-info.java: org.noventiqvaluepoint.quarkustodo.model.entity"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "org.hibernate.mapping.PrimaryKey" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942500000000",
+              "observedTimeUnixNano": "1751112942500115739",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Forcing column [id] to be non-null as it is part of the primary key for table [tasks]"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "org.hibernate.boot.model.internal.EntityBinder" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942446000000",
+              "observedTimeUnixNano": "1751112942446507283",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Binding entity from annotated class: org.noventiqvaluepoint.quarkustodo.model.entity.Tasks"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942450000000",
+              "observedTimeUnixNano": "1751112942450457470",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Import with entity name Tasks" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942454000000",
+              "observedTimeUnixNano": "1751112942454790419",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Bind entity org.noventiqvaluepoint.quarkustodo.model.entity.Tasks on table tasks"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.channel.DefaultChannelId" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942731000000",
+              "observedTimeUnixNano": "1751112942731453779",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.processId: 1 (auto-detected)"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942733000000",
+              "observedTimeUnixNano": "1751112942733692515",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.machineId: 80:ef:2d:ae:c4:25:0c:a8 (user-set)"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "io.netty.util.internal.logging.InternalLoggerFactory"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942704000000",
+              "observedTimeUnixNano": "1751112942704419381",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Using SLF4J as the default logging framework"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942521000000",
+              "observedTimeUnixNano": "1751112942521112493",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Stop region factory" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942521000000",
+              "observedTimeUnixNano": "1751112942521165769",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Clear region references" },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.vertx.core.logging.LoggerFactory" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942833000000",
+              "observedTimeUnixNano": "1751112942834887188",
+              "severityNumber": 6,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Using io.quarkus.vertx.core.runtime.VertxLogDelegateFactory"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.util.internal.InternalThreadLocalMap" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943080000000",
+              "observedTimeUnixNano": "1751112943080617469",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112943080000000",
+              "observedTimeUnixNano": "1751112943080715747",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.util.internal.PlatformDependent" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942727000000",
+              "observedTimeUnixNano": "1751112942727911567",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "sun.misc.Unsafe: available" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942727000000",
+              "observedTimeUnixNano": "1751112942728007408",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.tmpdir: /tmp (java.io.tmpdir)"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942728000000",
+              "observedTimeUnixNano": "1751112942728059957",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.bitMode: 64 (sun.arch.data.model)"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942728000000",
+              "observedTimeUnixNano": "1751112942728673152",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "-Dio.netty.maxDirectMemory: -1 bytes" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942728000000",
+              "observedTimeUnixNano": "1751112942728725706",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.uninitializedArrayAllocationThreshold: -1"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942729000000",
+              "observedTimeUnixNano": "1751112942729547971",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "-Dio.netty.noPreferDirect: false" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112943128000000",
+              "observedTimeUnixNano": "1751112943128803693",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "org.jctools-core.MpscChunkedArrayQueue: available"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.boot.model.internal.AbstractPropertyHolder"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942479000000",
+              "observedTimeUnixNano": "1751112942479367060",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:id]"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942487000000",
+              "observedTimeUnixNano": "1751112942487438565",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:description]"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942488000000",
+              "observedTimeUnixNano": "1751112942488205237",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:dueDate]"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490528287",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:name]"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942491000000",
+              "observedTimeUnixNano": "1751112942491076028",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:status]"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.boot.model.internal.AnnotatedColumn"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942461000000",
+              "observedTimeUnixNano": "1751112942461253748",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Binding column: AnnotatedDiscriminatorColumn(column='DTYPE')"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942473000000",
+              "observedTimeUnixNano": "1751112942473863902",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Binding column: AnnotatedColumn()" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942487000000",
+              "observedTimeUnixNano": "1751112942487313994",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Binding column: AnnotatedColumn()" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942488000000",
+              "observedTimeUnixNano": "1751112942488065295",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Binding column: AnnotatedColumn()" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490366930",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Binding column: AnnotatedColumn()" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490966612",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Binding column: AnnotatedColumn()" },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.quarkus.arc.runtime.BeanContainerImpl" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942546000000",
+              "observedTimeUnixNano": "1751112942546991277",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerVertxBufferMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942548000000",
+              "observedTimeUnixNano": "1751112942549053424",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerMutinyBufferMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942550000000",
+              "observedTimeUnixNano": "1751112942550686181",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerVertxAsyncFileMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942551000000",
+              "observedTimeUnixNano": "1751112942551883195",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerMutinyAsyncFileMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942554000000",
+              "observedTimeUnixNano": "1751112942554322296",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonArrayMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942554000000",
+              "observedTimeUnixNano": "1751112942554855393",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonObjectMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942555000000",
+              "observedTimeUnixNano": "1751112942555297255",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.QuarkusServerPathBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942556000000",
+              "observedTimeUnixNano": "1751112942556285484",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonArrayMessageBodyReader and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942556000000",
+              "observedTimeUnixNano": "1751112942557027183",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonObjectMessageBodyReader and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557202294",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557336365",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557456536",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557541186",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557646994",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557757071",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerCharArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557826328",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerByteArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557908202",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFormUrlEncodedProvider and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942557000000",
+              "observedTimeUnixNano": "1751112942557988585",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerInputStreamMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558054804",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.StreamingOutputMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558135969",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerReaderBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558214076",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFileBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558292322",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFilePartBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558359649",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.core.multipart.MultipartMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558436312",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerPathBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558501178",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerPathPartBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558561242",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558624826",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerBooleanMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558687843",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerCharacterMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558780363",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerNumberMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558884899",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerInputStreamMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942558000000",
+              "observedTimeUnixNano": "1751112942558978316",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerReaderBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942559000000",
+              "observedTimeUnixNano": "1751112942559506353",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.QuarkusServerFileBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942559000000",
+              "observedTimeUnixNano": "1751112942559604642",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerByteArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942559000000",
+              "observedTimeUnixNano": "1751112942559677896",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerDefaultTextPlainBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942560000000",
+              "observedTimeUnixNano": "1751112942560697500",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.ForbiddenExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942561000000",
+              "observedTimeUnixNano": "1751112942561056449",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.mappers.BuiltinMismatchedInputExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942561000000",
+              "observedTimeUnixNano": "1751112942561329328",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.AuthenticationRedirectExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942561000000",
+              "observedTimeUnixNano": "1751112942561538298",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.AuthenticationCompletionExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942561000000",
+              "observedTimeUnixNano": "1751112942561838396",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "No matching bean found for type class io.quarkus.rest.runtime.__QuarkusInit and qualifiers []. The bean might have been marked as unused and removed during build."
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.smallrye.config" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942648000000",
+              "observedTimeUnixNano": "1751112942649129531",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942649000000",
+              "observedTimeUnixNano": "1751112942649221573",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942649000000",
+              "observedTimeUnixNano": "1751112942649268938",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942649000000",
+              "observedTimeUnixNano": "1751112942649307107",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=jar:file:///deployments/app/quarkus-hello-1.0.0-SNAPSHOT.jar!/application.properties] with ordinal 250"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942649000000",
+              "observedTimeUnixNano": "1751112942649369257",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942649000000",
+              "observedTimeUnixNano": "1751112942649406486",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.channel.nio.NioEventLoop" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943122000000",
+              "observedTimeUnixNano": "1751112943122920802",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.noKeySetOptimization: false"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112943122000000",
+              "observedTimeUnixNano": "1751112943122978451",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.selectorAutoRebuildThreshold: 512"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942521000000",
+              "observedTimeUnixNano": "1751112942521496912",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942521000000",
+              "observedTimeUnixNano": "1751112942521543282",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "io.quarkus.vertx.core.runtime.VertxCoreRecorder"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942844000000",
+              "observedTimeUnixNano": "1751112942844362231",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Vert.x Cache configured to: /tmp/vertx-cache/3973500896756615409"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112943146000000",
+              "observedTimeUnixNano": "1751112943147040998",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Vertx has Native Transport Enabled: false"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.util.concurrent.GlobalEventExecutor" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943059000000",
+              "observedTimeUnixNano": "1751112943059831304",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "-Dio.netty.globalEventExecutor.quietPeriodSeconds: 1"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "com.arjuna.ats.jta" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943180000000",
+              "observedTimeUnixNano": "1751112943180189034",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Setting up node identifiers '[quarkus]' for which recovery will be performed"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.agroal.pool" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943367000000",
+              "observedTimeUnixNano": "1751112943368088561",
+              "severityNumber": 13,
+              "severityText": "WARN",
+              "body": {
+                "stringValue": "Datasource '\u003cdefault\u003e': The connection attempt failed."
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.util.internal.PlatformDependent0" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942723000000",
+              "observedTimeUnixNano": "1751112942723847190",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "-Dio.netty.noUnsafe: false" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942723000000",
+              "observedTimeUnixNano": "1751112942723946023",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Java version: 21" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942724000000",
+              "observedTimeUnixNano": "1751112942724433258",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "sun.misc.Unsafe.theUnsafe: available" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942724000000",
+              "observedTimeUnixNano": "1751112942724838565",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "sun.misc.Unsafe base methods: all available"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942725000000",
+              "observedTimeUnixNano": "1751112942725085354",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "sun.misc.Unsafe.storeFence: available"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942725000000",
+              "observedTimeUnixNano": "1751112942725620663",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "java.nio.Buffer.address: available" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942725000000",
+              "observedTimeUnixNano": "1751112942725933124",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "direct buffer constructor: unavailable: Reflective setAccessible(true) disabled"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942726000000",
+              "observedTimeUnixNano": "1751112942726307547",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "java.nio.Bits.unaligned: available, true"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942727000000",
+              "observedTimeUnixNano": "1751112942727036548",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @4b76251c"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942727000000",
+              "observedTimeUnixNano": "1751112942727817533",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "java.nio.DirectByteBuffer.\u003cinit\u003e(long, {int,long}): unavailable"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.quarkus.arc.runtime.ArcRecorder" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942524000000",
+              "observedTimeUnixNano": "1751112942524652155",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Bean container listener io.quarkus.hibernate.orm.runtime.HibernateOrmRecorder$1 finished in 478 ms"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.engine.jdbc.spi.SqlExceptionHelper"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112943369000000",
+              "observedTimeUnixNano": "1751112943369773251",
+              "severityNumber": 13,
+              "severityText": "WARN",
+              "body": { "stringValue": "SQL Error: 0, SQLState: 08001" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112943369000000",
+              "observedTimeUnixNano": "1751112943370014904",
+              "severityNumber": 17,
+              "severityText": "ERROR",
+              "body": { "stringValue": "The connection attempt failed." },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.boot.model.internal.PropertyBinder"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942476000000",
+              "observedTimeUnixNano": "1751112942476854715",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "MetadataSourceProcessor property id with lazy=false"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942483000000",
+              "observedTimeUnixNano": "1751112942483443489",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Building property id" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942487000000",
+              "observedTimeUnixNano": "1751112942487398037",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "MetadataSourceProcessor property description with lazy=false"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942487000000",
+              "observedTimeUnixNano": "1751112942487619942",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Building property description" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942488000000",
+              "observedTimeUnixNano": "1751112942488168577",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "MetadataSourceProcessor property dueDate with lazy=false"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942488000000",
+              "observedTimeUnixNano": "1751112942488355651",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Building property dueDate" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490486508",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "MetadataSourceProcessor property name with lazy=false"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490699750",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Building property name" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942491000000",
+              "observedTimeUnixNano": "1751112942491041312",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "MetadataSourceProcessor property status with lazy=false"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942491000000",
+              "observedTimeUnixNano": "1751112942491253670",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Building property status" },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": {
+            "name": "org.hibernate.boot.model.internal.BasicValueBinder"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942481000000",
+              "observedTimeUnixNano": "1751112942481247321",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "building BasicValue for id" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942487000000",
+              "observedTimeUnixNano": "1751112942487510243",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "building BasicValue for description" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942488000000",
+              "observedTimeUnixNano": "1751112942488253613",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "building BasicValue for dueDate" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490584026",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "building BasicValue for name" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942491000000",
+              "observedTimeUnixNano": "1751112942491148475",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "building BasicValue for status" },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942495000000",
+              "observedTimeUnixNano": "1751112942495280195",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Starting `BasicValueBinder#fillSimpleValue` for id"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942496000000",
+              "observedTimeUnixNano": "1751112942496100466",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Starting `BasicValueBinder#fillSimpleValue` for description"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942496000000",
+              "observedTimeUnixNano": "1751112942496175516",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Starting `BasicValueBinder#fillSimpleValue` for dueDate"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942496000000",
+              "observedTimeUnixNano": "1751112942496229801",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Starting `BasicValueBinder#fillSimpleValue` for name"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942496000000",
+              "observedTimeUnixNano": "1751112942496280850",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Starting `BasicValueBinder#fillSimpleValue` for status"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.quarkus.arc.impl" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942546000000",
+              "observedTimeUnixNano": "1751112942546693172",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "Loaded 47 removed beans lazily" },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "org.hibernate.mapping.BasicValue" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942482000000",
+              "observedTimeUnixNano": "1751112942482948790",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Skipping column re-registration: tasks.id"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942487000000",
+              "observedTimeUnixNano": "1751112942487564521",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Skipping column re-registration: tasks.description"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942488000000",
+              "observedTimeUnixNano": "1751112942488304357",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Skipping column re-registration: tasks.dueDate"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942490000000",
+              "observedTimeUnixNano": "1751112942490642302",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Skipping column re-registration: tasks.name"
+              },
+              "traceId": "",
+              "spanId": ""
+            },
+            {
+              "timeUnixNano": "1751112942491000000",
+              "observedTimeUnixNano": "1751112942491203881",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "Skipping column re-registration: tasks.status"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "org.hibernate.boot.model.internal.BinderHelper" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942486000000",
+              "observedTimeUnixNano": "1751112942486797055",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": {
+                "stringValue": "#makeIdGenerator(BasicValue([Column(id)]), id, identity, , ...)"
+              },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        },
+        {
+          "scope": { "name": "io.netty.channel.MultithreadEventLoopGroup" },
+          "logRecords": [
+            {
+              "timeUnixNano": "1751112942981000000",
+              "observedTimeUnixNano": "1751112942981923123",
+              "severityNumber": 5,
+              "severityText": "DEBUG",
+              "body": { "stringValue": "-Dio.netty.eventLoopThreads: 24" },
+              "traceId": "",
+              "spanId": ""
+            }
+          ]
+        }
+      ],
+      "schemaUrl": "https://opentelemetry.io/schemas/1.24.0"
+    }
+  ]
+}
