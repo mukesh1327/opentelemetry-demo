@@ -1,10 +1,10 @@
-x-logging:
-  &default-logging
-  driver: "json-file"
-  options:
-    max-size: "1m"
-    max-file: "1"
-    tag: "{{.Name}}"
+# x-logging:
+#   &default-logging
+#   driver: "json-file"
+#   options:
+#     max-size: "1m"
+#     max-file: "1"
+#     tag: "{{.Name}}"
 
 services:
   springboot-todo:
@@ -19,7 +19,7 @@ services:
       - ./values.env
     networks:
       - otel-demo
-    logging: *default-logging
+    # logging: *default-logging
 
 networks:
   otel-demo:

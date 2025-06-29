@@ -131,3 +131,9 @@ podman exec kafka-kraft /bin/kafka-console-consumer --bootstrap-server localhost
 - https://grafana.com/docs/loki/latest/send-data/otel/
 
 - https://play.grafana.org/dashboards
+
+- https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/lokiexporter
+
+- https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter
+
+- https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlpexporter

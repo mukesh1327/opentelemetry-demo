@@ -1,9 +1,9 @@
-x-logging: &default-logging
-  driver: "journald"
-  options:
-    max-size: "1m"
-    max-file: "1"
-    tag: "{{.Name}}"
+# x-logging: &default-logging
+#   driver: "journald"
+#   options:
+#     max-size: "1m"
+#     max-file: "1"
+#     tag: "{{.Name}}"
 
 services:
   quakrus-todo-postgres:
@@ -18,7 +18,7 @@ services:
       - ./values.env
     networks:
       - otel-demo
-    logging: *default-logging
+    # logging: *default-logging
 
 networks:
   otel-demo:

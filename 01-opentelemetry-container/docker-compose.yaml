@@ -1,9 +1,9 @@
-x-logging: &default-logging
-  driver: "journald"
-  options:
-    max-size: "1m"
-    max-file: "1"
-    tag: "{{.Name}}"
+# x-logging: &default-logging
+#   driver: "journald"
+#   options:
+#     max-size: "1m"
+#     max-file: "1"
+#     tag: "{{.Name}}"
 
 services:
 
@@ -98,21 +98,21 @@ services:
     networks:
       - otel-demo
 
-# Promtail
-  promtail:
-    image:  grafana/promtail:3.4.4
-    user: "0:0"
-    privileged: true
-    container_name: promtail
-    volumes:
-      - ./promtail-container-configs/promtail-config.yml:/etc/promtail/podman-config.yaml
-      - /var/lib/containers/storage:/var/lib/containers/storage:ro
-      - /run/user/1000/podman/podman.sock:/run/podman/podman.sock
-    command: -config.file=/etc/promtail/podman-config.yaml
-    depends_on:
-      - loki
-    networks:
-      - otel-demo
+# # Promtail
+#   promtail:
+#     image:  grafana/promtail:3.4.4
+#     user: "0:0"
+#     privileged: true
+#     container_name: promtail
+#     volumes:
+#       - ./promtail-container-configs/promtail-config.yml:/etc/promtail/podman-config.yaml
+#       - /var/lib/containers/storage:/var/lib/containers/storage:ro
+#       - /run/user/1000/podman/podman.sock:/run/podman/podman.sock
+#     command: -config.file=/etc/promtail/podman-config.yaml
+#     depends_on:
+#       - loki
+#     networks:
+#       - otel-demo
 
 # Prometheus
   prometheus:
