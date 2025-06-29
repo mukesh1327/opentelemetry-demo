@@ -127,3 +127,7 @@ podman exec kafka-kraft /bin/kafka-console-consumer --bootstrap-server localhost
 <!-- podman info --debug | grep -A5 'log:' -->
 
 - https://github.com/ruanbekker/docker-promtail-loki
+
+- https://grafana.com/docs/loki/latest/send-data/otel/
+
+- https://play.grafana.org/dashboards
