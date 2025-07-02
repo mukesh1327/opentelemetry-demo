@@ -1,7 +1,7 @@
-package org.noventiqvaluepoint.quarkustodo.service;
+package org.cloudxplorer13.quarkustodo.service;
 
-import org.noventiqvaluepoint.quarkustodo.controller.wrapper.TaskResponse;
-import org.noventiqvaluepoint.quarkustodo.model.dto.TasksDto;
+import org.cloudxplorer13.quarkustodo.controller.wrapper.TaskResponse;
+import org.cloudxplorer13.quarkustodo.model.dto.TasksDto;
 
 import java.util.List;
 

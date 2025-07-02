@@ -1,13 +1,13 @@
-package org.noventiqvaluepoint.quarkustodo.controller;
+package org.cloudxplorer13.quarkustodo.controller;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.noventiqvaluepoint.quarkustodo.controller.wrapper.TaskResponse;
-import org.noventiqvaluepoint.quarkustodo.model.dto.TasksDto;
-import org.noventiqvaluepoint.quarkustodo.service.TasksService;
-import org.noventiqvaluepoint.quarkustodo.exceptions.TasksExceptions.*;
+import org.cloudxplorer13.quarkustodo.controller.wrapper.TaskResponse;
+import org.cloudxplorer13.quarkustodo.model.dto.TasksDto;
+import org.cloudxplorer13.quarkustodo.service.TasksService;
+import org.cloudxplorer13.quarkustodo.exceptions.TasksExceptions.*;
 
 @Path("/api/tasks")
 @Produces(MediaType.APPLICATION_JSON)

@@ -1,4 +1,4 @@
-package org.noventiqvaluepoint.quarkustodo.model.entity;
+package org.cloudxplorer13.quarkustodo.model.entity;
 
 public enum TasksStatusEnum {
     PENDING,

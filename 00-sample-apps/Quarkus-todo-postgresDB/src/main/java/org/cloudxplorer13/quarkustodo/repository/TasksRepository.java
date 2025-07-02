@@ -1,8 +1,8 @@
-package org.noventiqvaluepoint.quarkustodo.repository;
+package org.cloudxplorer13.quarkustodo.repository;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.noventiqvaluepoint.quarkustodo.model.entity.Tasks;
+import org.cloudxplorer13.quarkustodo.model.entity.Tasks;
 
 @ApplicationScoped
 public class TasksRepository implements PanacheRepository<Tasks> {

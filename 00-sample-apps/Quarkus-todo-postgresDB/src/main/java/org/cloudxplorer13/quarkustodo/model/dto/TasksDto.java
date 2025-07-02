@@ -1,6 +1,6 @@
-package org.noventiqvaluepoint.quarkustodo.model.dto;
+package org.cloudxplorer13.quarkustodo.model.dto;
 
-import org.noventiqvaluepoint.quarkustodo.model.entity.TasksStatusEnum;
+import org.cloudxplorer13.quarkustodo.model.entity.TasksStatusEnum;
 
 import java.time.LocalDate;
 

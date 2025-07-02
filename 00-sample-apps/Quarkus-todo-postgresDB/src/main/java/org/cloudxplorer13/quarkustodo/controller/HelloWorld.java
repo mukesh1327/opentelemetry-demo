@@ -1,4 +1,4 @@
-package org.noventiqvaluepoint.quarkustodo.controller;
+package org.cloudxplorer13.quarkustodo.controller;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 

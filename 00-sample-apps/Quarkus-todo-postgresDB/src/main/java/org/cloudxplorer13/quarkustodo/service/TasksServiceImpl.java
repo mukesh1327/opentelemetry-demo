@@ -1,13 +1,13 @@
-package org.noventiqvaluepoint.quarkustodo.service;
+package org.cloudxplorer13.quarkustodo.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
-import org.noventiqvaluepoint.quarkustodo.controller.wrapper.TaskResponse;
-import org.noventiqvaluepoint.quarkustodo.exceptions.TasksExceptions.*;
-import org.noventiqvaluepoint.quarkustodo.model.dto.TasksDto;
-import org.noventiqvaluepoint.quarkustodo.model.entity.Tasks;
-import org.noventiqvaluepoint.quarkustodo.model.entity.TasksStatusEnum;
-import org.noventiqvaluepoint.quarkustodo.repository.TasksRepository;
+import org.cloudxplorer13.quarkustodo.controller.wrapper.TaskResponse;
+import org.cloudxplorer13.quarkustodo.exceptions.TasksExceptions.*;
+import org.cloudxplorer13.quarkustodo.model.dto.TasksDto;
+import org.cloudxplorer13.quarkustodo.model.entity.Tasks;
+import org.cloudxplorer13.quarkustodo.model.entity.TasksStatusEnum;
+import org.cloudxplorer13.quarkustodo.repository.TasksRepository;
 
 
 import java.util.List;

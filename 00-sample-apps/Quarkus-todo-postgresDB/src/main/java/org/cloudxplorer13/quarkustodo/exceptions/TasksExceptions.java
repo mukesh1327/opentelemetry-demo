@@ -1,4 +1,4 @@
-package org.noventiqvaluepoint.quarkustodo.exceptions;
+package org.cloudxplorer13.quarkustodo.exceptions;
 
 public class TasksExceptions {
     public static class TaskNotFoundException extends RuntimeException {

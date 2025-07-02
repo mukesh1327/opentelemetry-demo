@@ -8,7 +8,7 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cloudxplorer</groupId>
+	<groupId>com.cloudxplorer13</groupId>
 	<artifactId>springboot-todo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>springboot-todo</name>

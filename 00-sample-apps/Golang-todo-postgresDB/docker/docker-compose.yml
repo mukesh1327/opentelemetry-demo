@@ -1,0 +1,24 @@
+services:
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: todo-go
+    environment:
+      DB_HOST: otel-postgres
+      DB_PORT: 5432
+      DB_USER: gotodo
+      DB_PASSWORD: gotodo
+      DB_NAME: gotodo
+    ports:
+      - "8080:8080"
+    networks:
+      - otel-demo
+
+volumes:
+  postgres-data:
+
+networks:
+  otel-demo:
+    external: true

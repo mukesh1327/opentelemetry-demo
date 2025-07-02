@@ -1,6 +1,6 @@
-package org.noventiqvaluepoint.quarkustodo.controller.wrapper;
+package org.cloudxplorer13.quarkustodo.controller.wrapper;
 
-import org.noventiqvaluepoint.quarkustodo.model.dto.TasksDto;
+import org.cloudxplorer13.quarkustodo.model.dto.TasksDto;
 
 
 public class TaskResponse {

@@ -220,7 +220,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Not known whether passed class name [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks] is safe"
+                "stringValue": "Not known whether passed class name [org.cloudxplorer13.quarkustodo.model.entity.Tasks] is safe"
               },
               "traceId": "",
               "spanId": ""
@@ -231,7 +231,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.noventiqvaluepoint.quarkustodo.model.entity.Tasks"
+                "stringValue": "No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.cloudxplorer13.quarkustodo.model.entity.Tasks"
               },
               "traceId": "",
               "spanId": ""
@@ -242,7 +242,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Not known whether passed class name [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks] is safe"
+                "stringValue": "Not known whether passed class name [org.cloudxplorer13.quarkustodo.model.entity.Tasks] is safe"
               },
               "traceId": "",
               "spanId": ""
@@ -253,7 +253,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.noventiqvaluepoint.quarkustodo.model.entity.Tasks"
+                "stringValue": "No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : org.cloudxplorer13.quarkustodo.model.entity.Tasks"
               },
               "traceId": "",
               "spanId": ""
@@ -271,7 +271,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "HHH000194: Package not found or no package-info.java: org.noventiqvaluepoint.quarkustodo.model.entity"
+                "stringValue": "HHH000194: Package not found or no package-info.java: org.cloudxplorer13.quarkustodo.model.entity"
               },
               "traceId": "",
               "spanId": ""
@@ -303,7 +303,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Binding entity from annotated class: org.noventiqvaluepoint.quarkustodo.model.entity.Tasks"
+                "stringValue": "Binding entity from annotated class: org.cloudxplorer13.quarkustodo.model.entity.Tasks"
               },
               "traceId": "",
               "spanId": ""
@@ -323,7 +323,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Bind entity org.noventiqvaluepoint.quarkustodo.model.entity.Tasks on table tasks"
+                "stringValue": "Bind entity org.cloudxplorer13.quarkustodo.model.entity.Tasks on table tasks"
               },
               "traceId": "",
               "spanId": ""
@@ -530,7 +530,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:id]"
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.cloudxplorer13.quarkustodo.model.entity.Tasks:id]"
               },
               "traceId": "",
               "spanId": ""
@@ -541,7 +541,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:description]"
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.cloudxplorer13.quarkustodo.model.entity.Tasks:description]"
               },
               "traceId": "",
               "spanId": ""
@@ -552,7 +552,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:dueDate]"
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.cloudxplorer13.quarkustodo.model.entity.Tasks:dueDate]"
               },
               "traceId": "",
               "spanId": ""
@@ -563,7 +563,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:name]"
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.cloudxplorer13.quarkustodo.model.entity.Tasks:name]"
               },
               "traceId": "",
               "spanId": ""
@@ -574,7 +574,7 @@
               "severityNumber": 5,
               "severityText": "DEBUG",
               "body": {
-                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.noventiqvaluepoint.quarkustodo.model.entity.Tasks:status]"
+                "stringValue": "Attempting to locate auto-apply AttributeConverter for property [org.cloudxplorer13.quarkustodo.model.entity.Tasks:status]"
               },
               "traceId": "",
               "spanId": ""

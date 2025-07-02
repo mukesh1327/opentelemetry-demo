@@ -1,4 +1,4 @@
-package org.noventiqvaluepoint.quarkustodo.model.entity;
+package org.cloudxplorer13.quarkustodo.model.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
