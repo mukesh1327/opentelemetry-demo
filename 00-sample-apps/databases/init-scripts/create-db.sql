@@ -1,3 +1,6 @@
+-- To connect to postgres default user and pass
+-- psql -U postgres -d postgres
+
 CREATE USER springboottodo WITH ENCRYPTED PASSWORD 'springboottodo';
 CREATE DATABASE springboottodo OWNER springboottodo;
 

@@ -1,0 +1,55 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: golang-todo-otel
+  labels:
+    app: golang-todo-otel
+    app.kubernetes.io/component: golang-todo-otel
+    app.kubernetes.io/instance: golang-todo-otel
+    app.kubernetes.io/name: golang-todo-otel
+    app.kubernetes.io/part-of: golang
+    app.openshift.io/runtime: golang
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-todo-otel
+  template:
+    metadata:
+      labels:
+        app: golang-todo-otel
+        deployment: golang-todo-otel
+    spec:
+      containers:
+        - name: golang-todo-otel
+          image: 'quay.io/mukeshs1306/golang-todo-otel:latest'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: golang-todo-otel
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: golang-todo-otel
+                  key: DB_PORT
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: golang-todo-otel
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: golang-todo-otel
+                  key: DB_PASSWORD
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: golang-todo-otel
+                  key: DB_NAME
+          resources: {}

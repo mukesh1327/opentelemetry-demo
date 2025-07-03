@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: golang-todo-otel
+  labels:
+    app: golang-todo-otel
+    app.kubernetes.io/component: golang-todo-otel
+    app.kubernetes.io/instance: golang-todo-otel
+    app.kubernetes.io/name: golang-todo-otel
+    app.kubernetes.io/part-of: golang
+    app.openshift.io/runtime: golang
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+  selector:
+    app: golang-todo-otel
+    deployment: golang-todo-otel

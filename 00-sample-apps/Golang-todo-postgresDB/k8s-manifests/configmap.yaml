@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: golang-todo-otel
+data:
+  DB_HOST: 'postgresql-demo.app-deploy-demo.svc.cluster.local'
+  DB_PORT: '5432' 
+  DB_USER: 'golangdemo'
+  DB_PASSWORD: 'golangdemo'
+  DB_NAME: 'golangdemo'
